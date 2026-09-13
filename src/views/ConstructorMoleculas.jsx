@@ -4,6 +4,7 @@ import Molecula3D from "./Molecula3D";
 import REGLAS_MOLECULAS, {
   analizarMolecula,
 } from "../chemistry/chemicalRules";
+import { analizarLewis } from "../chemistry/lewisRules";
 import "./ConstructorMoleculas.css";
 
 /* =========================================================
@@ -369,6 +370,14 @@ function ConstructorMoleculas({
       formula: formula,
     };
   }, [atomos, formula]);
+
+  /* =======================================================
+     ANÁLISIS DE LEWIS
+     ======================================================= */
+
+  const analisisLewis = useMemo(() => {
+    return analizarLewis(atomos);
+  }, [atomos]);
 
   /* =======================================================
      ELEMENTOS FILTRADOS
@@ -772,6 +781,150 @@ function ConstructorMoleculas({
               {analisis.formula ||
                 formula}
             </strong>
+
+          </div>
+
+          {/* =================================================
+              ESTRUCTURA DE LEWIS
+              ================================================= */}
+
+          <div className="panel-lewis">
+
+            <div className="encabezado-lewis">
+              <div>
+                <span className="etiqueta-lewis">
+                  ESTRUCTURA DE LEWIS
+                </span>
+
+                <h3>
+                  Electrones de valencia
+                </h3>
+              </div>
+
+              <span
+                className={
+                  analisisLewis.reconocida
+                    ? "estado-lewis reconocido"
+                    : "estado-lewis"
+                }
+              >
+                {analisisLewis.reconocida
+                  ? "Reconocida"
+                  : "En desarrollo"}
+              </span>
+            </div>
+
+            {atomos.length === 0 ? (
+              <p className="mensaje-lewis">
+                Agrega elementos para calcular la estructura de Lewis.
+              </p>
+            ) : (
+              <>
+                <div className="resumen-lewis">
+
+                  <div className="dato-lewis">
+                    <span>
+                      Electrones de valencia
+                    </span>
+
+                    <strong>
+                      {analisisLewis.electronesValencia}
+                    </strong>
+                  </div>
+
+                  <div className="dato-lewis">
+                    <span>
+                      Átomo central
+                    </span>
+
+                    <strong>
+                      {analisisLewis.atomoCentral || "—"}
+                    </strong>
+                  </div>
+
+                </div>
+
+                {analisisLewis.reconocida ? (
+                  <>
+                    <div className="bloque-lewis">
+
+                      <h4>
+                        Enlaces
+                      </h4>
+
+                      <div className="lista-enlaces-lewis">
+                        {analisisLewis.enlaces.map(
+                          (enlace, indice) => (
+                            <div
+                              className="enlace-lewis"
+                              key={`${enlace.entre.join("-")}-${indice}`}
+                            >
+                              <span>
+                                {enlace.entre[0]} — {enlace.entre[1]}
+                              </span>
+
+                              <strong>
+                                {enlace.orden === 1
+                                  ? "Simple"
+                                  : enlace.orden === 2
+                                  ? "Doble"
+                                  : "Triple"}
+                              </strong>
+                            </div>
+                          )
+                        )}
+                      </div>
+
+                    </div>
+
+                    <div className="bloque-lewis">
+
+                      <h4>
+                        Pares libres
+                      </h4>
+
+                      {Object.keys(
+                        analisisLewis.paresLibres || {}
+                      ).length === 0 ? (
+                        <p className="sin-pares-lewis">
+                          No hay pares libres registrados.
+                        </p>
+                      ) : (
+                        <div className="lista-pares-lewis">
+                          {Object.entries(
+                            analisisLewis.paresLibres
+                          ).map(
+                            ([simbolo, pares]) => (
+                              <div
+                                className="par-libre-lewis"
+                                key={simbolo}
+                              >
+                                <span>
+                                  {simbolo}
+                                </span>
+
+                                <strong>
+                                  {pares}{" "}
+                                  {pares === 1
+                                    ? "par"
+                                    : "pares"}
+                                </strong>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      )}
+
+                    </div>
+                  </>
+                ) : (
+                  <p className="mensaje-lewis">
+                    Esta combinación todavía no tiene una estructura
+                    de Lewis registrada.
+                  </p>
+                )}
+              </>
+            )}
 
           </div>
 

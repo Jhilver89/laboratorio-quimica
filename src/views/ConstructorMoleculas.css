@@ -1,132 +1,146 @@
+/* =========================================================
+   CONSTRUCTOR DE MOLÉCULAS
+   ========================================================= */
+
 .vista-constructor-moleculas {
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
-  padding: 30px 0 50px;
+  padding: 24px;
+  box-sizing: border-box;
 }
+
+/* =========================================================
+   CABECERA
+   ========================================================= */
 
 .encabezado-constructor {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  gap: 25px;
-  margin-bottom: 28px;
+  gap: 20px;
+  margin-bottom: 24px;
 }
 
 .etiqueta-modulo {
-  margin: 0 0 8px;
-  color: #2563eb;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
+  margin: 0 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  color: #64748b;
 }
 
 .encabezado-constructor h1 {
   margin: 0;
+  font-size: 30px;
+  line-height: 1.2;
   color: #172033;
-  font-size: 2.2rem;
-  line-height: 1.15;
 }
 
 .encabezado-constructor p:not(.etiqueta-modulo) {
-  margin: 10px 0 0;
-  color: #687386;
-  font-size: 1rem;
+  margin: 8px 0 0;
+  color: #64748b;
+  font-size: 15px;
 }
 
 .boton-volver-constructor {
-  border: 1px solid #d6dce6;
+  border: 1px solid #d8dee8;
   background: white;
-  color: #344054;
+  color: #263246;
+  padding: 10px 16px;
   border-radius: 10px;
-  padding: 11px 18px;
-  font-size: 0.92rem;
-  font-weight: 700;
   cursor: pointer;
+  font-weight: 600;
   transition: 0.2s ease;
 }
 
 .boton-volver-constructor:hover {
   background: #f5f7fa;
-  border-color: #b9c2d0;
 }
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+   ========================================================= */
 
 .constructor-contenido {
   display: grid;
   grid-template-columns: 270px minmax(0, 1fr) 270px;
   gap: 18px;
-  align-items: stretch;
+  align-items: start;
 }
+
+/* =========================================================
+   PANELES
+   ========================================================= */
 
 .panel-elementos,
 .area-construccion,
 .panel-informacion-molecula {
   background: white;
   border: 1px solid #dfe5ee;
-  border-radius: 16px;
-  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.05);
+  border-radius: 14px;
+  box-sizing: border-box;
 }
 
-.panel-elementos {
-  padding: 20px;
+.panel-elementos,
+.panel-informacion-molecula {
+  padding: 18px;
 }
+
+/* =========================================================
+   PANEL DE ELEMENTOS
+   ========================================================= */
 
 .titulo-panel {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  gap: 10px;
+  margin-bottom: 14px;
 }
 
 .titulo-panel h2,
-.cabecera-area h2,
-.panel-informacion-molecula h2 {
+.panel-informacion-molecula > h2 {
   margin: 0;
+  font-size: 18px;
   color: #172033;
-  font-size: 1.15rem;
 }
 
 .titulo-panel span {
-  display: flex;
+  min-width: 28px;
+  height: 28px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 30px;
-  height: 26px;
-  padding: 0 8px;
-  border-radius: 20px;
-  background: #eef4ff;
-  color: #2563eb;
-  font-size: 0.78rem;
-  font-weight: 800;
+  border-radius: 8px;
+  background: #f0f3f8;
+  color: #475569;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .buscador-elementos {
   width: 100%;
   box-sizing: border-box;
-  padding: 11px 12px;
-  border: 1px solid #d7dde7;
+  border: 1px solid #d8dee8;
   border-radius: 9px;
+  padding: 10px 11px;
   outline: none;
-  background: #fafbfc;
-  color: #172033;
-  font-size: 0.9rem;
-  transition: 0.2s ease;
+  font-size: 14px;
+  margin-bottom: 12px;
 }
 
 .buscador-elementos:focus {
-  border-color: #2563eb;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+  border-color: #94a3b8;
 }
 
 .lista-elementos {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-top: 15px;
-  max-height: 560px;
+  max-height: 570px;
   overflow-y: auto;
-  padding-right: 4px;
+  padding-right: 3px;
 }
 
 .elemento-opcion {
@@ -135,59 +149,61 @@
   grid-template-columns: 42px minmax(0, 1fr) 28px;
   align-items: center;
   gap: 8px;
-  padding: 8px;
   border: 1px solid transparent;
-  border-radius: 9px;
   background: #f8fafc;
+  border-radius: 9px;
+  padding: 8px;
   text-align: left;
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .elemento-opcion:hover {
-  background: #eef4ff;
-  border-color: #cbdafc;
-  transform: translateX(2px);
+  background: #eef2f7;
+  border-color: #d7dee8;
 }
 
 .simbolo-elemento {
-  display: flex;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
   border-radius: 8px;
-  background: #e9f0ff;
-  color: #1d4ed8;
-  font-size: 1rem;
-  font-weight: 800;
+  background: white;
+  border: 1px solid #dce3ec;
+  font-weight: 700;
+  color: #1e293b;
 }
 
 .nombre-elemento {
+  min-width: 0;
   overflow: hidden;
-  color: #344054;
-  font-size: 0.84rem;
-  font-weight: 650;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: #334155;
+  font-size: 13px;
 }
 
 .numero-elemento {
-  color: #98a2b3;
-  font-size: 0.72rem;
+  color: #94a3b8;
+  font-size: 11px;
   text-align: right;
 }
 
 .sin-resultados {
-  margin: 20px 0 0;
-  color: #7b8494;
-  font-size: 0.85rem;
-  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.5;
 }
+
+/* =========================================================
+   ÁREA DE CONSTRUCCIÓN
+   ========================================================= */
 
 .area-construccion {
   min-width: 0;
-  padding: 22px;
+  padding: 18px;
 }
 
 .cabecera-area {
@@ -195,143 +211,69 @@
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
+}
+
+.cabecera-area h2 {
+  margin: 0;
+  font-size: 19px;
+  color: #172033;
 }
 
 .cabecera-area p {
   margin: 5px 0 0;
-  color: #7b8494;
-  font-size: 0.84rem;
+  color: #64748b;
+  font-size: 13px;
 }
 
 .boton-limpiar {
-  border: 1px solid #f0b6b6;
-  background: #fff7f7;
-  color: #c0392b;
-  border-radius: 8px;
-  padding: 8px 13px;
-  font-size: 0.8rem;
-  font-weight: 700;
+  border: 1px solid #d8dee8;
+  background: white;
+  color: #475569;
+  padding: 9px 13px;
+  border-radius: 9px;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .boton-limpiar:hover {
-  background: #fff0f0;
+  background: #f5f7fa;
 }
+
+/* =========================================================
+   REPRESENTACIÓN 3D
+   ========================================================= */
 
 .representacion-molecula {
-  min-height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed #cbd3df;
-  border-radius: 14px;
-  background:
-    radial-gradient(circle at center, #ffffff 0%, #f8fafc 75%);
-  overflow: hidden;
-}
-
-.estado-vacio-molecula {
-  max-width: 330px;
-  padding: 30px;
-  text-align: center;
-}
-
-.icono-molecula {
-  width: 70px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-  border-radius: 50%;
-  background: #edf3ff;
-  color: #2563eb;
-  font-size: 2rem;
-}
-
-.estado-vacio-molecula h3 {
-  margin: 0;
-  color: #344054;
-  font-size: 1.05rem;
-}
-
-.estado-vacio-molecula p {
-  margin: 8px 0 0;
-  color: #7b8494;
-  font-size: 0.88rem;
-  line-height: 1.5;
-}
-
-.atomos-construidos {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
   width: 100%;
-  padding: 40px;
-  box-sizing: border-box;
-}
-
-.atomo-construido {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nucleo-atomo {
-  min-width: 78px;
-  min-height: 78px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  box-sizing: border-box;
-  border-radius: 50%;
-  border: 3px solid #93b4f8;
-  background: #eef4ff;
-  box-shadow: 0 5px 15px rgba(37, 99, 235, 0.12);
-}
-
-.nucleo-atomo strong {
-  color: #1d4ed8;
-  font-size: 1.4rem;
-}
-
-.nucleo-atomo span {
-  max-width: 75px;
-  margin-top: 2px;
+  min-height: 350px;
   overflow: hidden;
-  color: #64748b;
-  font-size: 0.62rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  border: 1px dashed #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
 }
 
-.linea-enlace {
-  min-width: 28px;
-  color: #64748b;
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-align: center;
-}
+/* =========================================================
+   ELEMENTOS UTILIZADOS
+   ========================================================= */
 
 .lista-construccion {
-  margin-top: 22px;
+  margin-top: 18px;
 }
 
 .lista-construccion h3 {
   margin: 0 0 12px;
-  color: #344054;
-  font-size: 0.95rem;
+  font-size: 15px;
+  color: #334155;
 }
 
 .sin-elementos {
   margin: 0;
-  color: #98a2b3;
-  font-size: 0.82rem;
+  padding: 16px;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 13px;
 }
 
 .elementos-utilizados {
@@ -346,67 +288,59 @@
   justify-content: space-between;
   gap: 15px;
   padding: 10px 12px;
-  border: 1px solid #e3e7ee;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
-  background: #fafbfc;
+  background: white;
 }
 
 .identidad-elemento {
+  min-width: 0;
   display: flex;
   align-items: center;
   gap: 10px;
-  min-width: 0;
 }
 
 .simbolo-utilizado {
   width: 38px;
   height: 38px;
-  display: flex;
+  flex: 0 0 38px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  border-radius: 8px;
-  background: #eef4ff;
-  color: #2563eb;
-  font-weight: 800;
-}
-
-.identidad-elemento div {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  border-radius: 9px;
+  background: #f1f5f9;
+  color: #1e293b;
+  font-weight: 700;
 }
 
 .identidad-elemento strong {
-  color: #344054;
-  font-size: 0.82rem;
+  display: block;
+  color: #334155;
+  font-size: 13px;
 }
 
 .identidad-elemento small {
-  color: #98a2b3;
-  font-size: 0.68rem;
+  display: block;
+  margin-top: 2px;
+  color: #94a3b8;
+  font-size: 11px;
 }
 
 .controles-cantidad {
   display: flex;
   align-items: center;
   gap: 6px;
-  flex-shrink: 0;
 }
 
 .controles-cantidad button {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #d5dbe5;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #d8dee8;
   border-radius: 7px;
   background: white;
-  color: #344054;
-  font-size: 1rem;
-  font-weight: 700;
+  color: #334155;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .controles-cantidad button:hover {
@@ -415,127 +349,282 @@
 
 .controles-cantidad span {
   min-width: 24px;
-  color: #344054;
-  font-size: 0.84rem;
-  font-weight: 800;
   text-align: center;
+  font-weight: 700;
+  color: #334155;
 }
 
 .controles-cantidad .boton-eliminar {
-  margin-left: 4px;
-  border-color: #f1c5c5;
-  background: #fff7f7;
-  color: #c0392b;
+  margin-left: 3px;
+  color: #64748b;
 }
 
+/* =========================================================
+   INFORMACIÓN GENERAL
+   ========================================================= */
+
 .panel-informacion-molecula {
-  padding: 22px;
+  min-width: 0;
+}
+
+.panel-informacion-molecula > h2 {
+  margin-bottom: 16px;
 }
 
 .formula-principal {
-  margin-top: 20px;
-  padding: 18px;
-  border-radius: 12px;
-  background: #f4f7fb;
-  text-align: center;
+  padding: 16px;
+  margin-bottom: 14px;
+  border-radius: 11px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
 }
 
 .formula-principal span {
   display: block;
-  margin-bottom: 8px;
-  color: #7b8494;
-  font-size: 0.76rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.7px;
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 5px;
 }
 
 .formula-principal strong {
+  display: block;
+  font-size: 28px;
   color: #172033;
-  font-size: 2rem;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
+
+/* =========================================================
+   DATOS DE LA MOLÉCULA
+   ========================================================= */
 
 .datos-molecula {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  margin-top: 18px;
+  gap: 1px;
 }
 
 .dato-molecula {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 13px 0;
-  border-bottom: 1px solid #edf0f4;
+  padding: 9px 0;
+  border-bottom: 1px solid #eef2f7;
 }
 
 .dato-molecula span {
-  color: #7b8494;
-  font-size: 0.78rem;
+  color: #64748b;
+  font-size: 12px;
 }
 
 .dato-molecula strong {
-  color: #344054;
-  font-size: 0.82rem;
+  color: #334155;
+  font-size: 12px;
   text-align: right;
+  max-width: 145px;
 }
 
+/* =========================================================
+   ANÁLISIS QUÍMICO
+   ========================================================= */
+
 .mensaje-quimico {
-  margin-top: 20px;
-  padding: 15px;
-  border: 1px solid #dbe5f5;
-  border-radius: 11px;
-  background: #f7faff;
+  margin-top: 15px;
+  padding: 13px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
 }
 
 .mensaje-quimico h3 {
   margin: 0 0 7px;
-  color: #315a9b;
-  font-size: 0.82rem;
+  font-size: 13px;
+  color: #334155;
 }
 
 .mensaje-quimico p {
   margin: 0;
-  color: #6b778c;
-  font-size: 0.74rem;
+  color: #64748b;
+  font-size: 12px;
   line-height: 1.55;
 }
 
+/* =========================================================
+   ESTRUCTURA DE LEWIS
+   ========================================================= */
+
+.panel-lewis {
+  margin-bottom: 16px;
+  padding: 14px;
+  border: 1px solid #dbe3ed;
+  border-radius: 11px;
+  background: #ffffff;
+}
+
+.encabezado-lewis {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+
+.etiqueta-lewis {
+  display: block;
+  margin-bottom: 3px;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.encabezado-lewis h3 {
+  margin: 0;
+  color: #172033;
+  font-size: 15px;
+}
+
+.estado-lewis {
+  flex-shrink: 0;
+  padding: 5px 7px;
+  border-radius: 999px;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.estado-lewis.reconocido {
+  background: #ecfdf5;
+  color: #166534;
+}
+
+.resumen-lewis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin-bottom: 12px;
+}
+
+.dato-lewis {
+  padding: 9px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid #e5eaf0;
+}
+
+.dato-lewis span {
+  display: block;
+  margin-bottom: 4px;
+  color: #64748b;
+  font-size: 10px;
+}
+
+.dato-lewis strong {
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.bloque-lewis {
+  margin-top: 11px;
+}
+
+.bloque-lewis h4 {
+  margin: 0 0 7px;
+  color: #475569;
+  font-size: 12px;
+}
+
+.lista-enlaces-lewis,
+.lista-pares-lewis {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.enlace-lewis,
+.par-libre-lewis {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 8px;
+  border-radius: 7px;
+  background: #f8fafc;
+  border: 1px solid #e8edf3;
+  font-size: 11px;
+}
+
+.enlace-lewis span,
+.par-libre-lewis span {
+  color: #475569;
+  font-weight: 600;
+}
+
+.enlace-lewis strong,
+.par-libre-lewis strong {
+  color: #334155;
+  font-size: 10px;
+}
+
+.sin-pares-lewis,
+.mensaje-lewis {
+  margin: 0;
+  color: #64748b;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.mensaje-lewis {
+  padding: 9px;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
 @media (max-width: 1150px) {
   .constructor-contenido {
-    grid-template-columns: 230px minmax(0, 1fr);
+    grid-template-columns: 240px minmax(0, 1fr);
   }
 
   .panel-informacion-molecula {
     grid-column: 1 / -1;
   }
 
-  .datos-molecula {
+  .panel-informacion-molecula {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
   }
 
-  .dato-molecula {
-    border: 1px solid #edf0f4;
-    padding: 12px;
-    border-radius: 9px;
+  .panel-informacion-molecula > h2,
+  .formula-principal {
+    grid-column: 1 / -1;
+  }
+
+  .datos-molecula {
+    grid-column: 1;
   }
 
   .mensaje-quimico {
-    margin-top: 15px;
+    grid-column: 2;
+  }
+
+  .panel-lewis {
+    grid-column: 1 / -1;
   }
 }
 
 @media (max-width: 800px) {
   .vista-constructor-moleculas {
-    padding: 20px 0 35px;
+    padding: 16px;
   }
 
   .encabezado-constructor {
+    align-items: flex-start;
     flex-direction: column;
   }
 
@@ -543,16 +632,9 @@
     grid-template-columns: 1fr;
   }
 
-  .panel-elementos {
-    order: 1;
-  }
-
-  .area-construccion {
-    order: 2;
-  }
-
+  .panel-elementos,
+  .area-construccion,
   .panel-informacion-molecula {
-    order: 3;
     grid-column: auto;
   }
 
@@ -560,42 +642,31 @@
     max-height: 300px;
   }
 
-  .datos-molecula {
-    grid-template-columns: 1fr;
+  .panel-informacion-molecula {
+    display: block;
+  }
+
+  .mensaje-quimico {
+    margin-top: 15px;
+  }
+
+  .representacion-molecula {
+    min-height: 300px;
   }
 }
 
 @media (max-width: 560px) {
+  .vista-constructor-moleculas {
+    padding: 12px;
+  }
+
   .encabezado-constructor h1 {
-    font-size: 1.7rem;
+    font-size: 24px;
   }
 
-  .encabezado-constructor {
-    margin-bottom: 20px;
-  }
-
-  .area-construccion,
-  .panel-elementos,
-  .panel-informacion-molecula {
-    padding: 16px;
-  }
-
-  .representacion-molecula {
-    min-height: 280px;
-  }
-
-  .atomos-construidos {
-    padding: 20px;
-    gap: 5px;
-  }
-
-  .nucleo-atomo {
-    min-width: 64px;
-    min-height: 64px;
-  }
-
-  .nucleo-atomo strong {
-    font-size: 1.15rem;
+  .cabecera-area {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .elemento-utilizado {
@@ -605,10 +676,13 @@
 
   .controles-cantidad {
     width: 100%;
-    justify-content: flex-end;
   }
 
-  .formula-principal strong {
-    font-size: 1.7rem;
+  .resumen-lewis {
+    grid-template-columns: 1fr;
+  }
+
+  .representacion-molecula {
+    min-height: 270px;
   }
 }
