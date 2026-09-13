@@ -20,13 +20,13 @@ const periodos = [
     "",
     "",
     "",
-    "",
     "He",
   ],
 
   [
     "Li",
     "Be",
+    "",
     "",
     "",
     "",
@@ -46,6 +46,7 @@ const periodos = [
   [
     "Na",
     "Mg",
+    "",
     "",
     "",
     "",
@@ -190,7 +191,10 @@ function obtenerElemento(simbolo) {
   );
 }
 
-function TablaPeriodica({ abrirAtomo3D }) {
+function TablaPeriodica({
+  abrirAtomo3D,
+  abrirConstructorMoleculas,
+}) {
   const [
     elementoSeleccionado,
     setElementoSeleccionado,
@@ -627,8 +631,7 @@ function TablaPeriodica({ abrirAtomo3D }) {
                 <strong>
                   {
                     elementoSeleccionado
-                      .electronegatividad ??
-                    "—"
+                      .electronegatividad ?? "—"
                   }
                 </strong>
               </div>
@@ -704,15 +707,25 @@ function TablaPeriodica({ abrirAtomo3D }) {
 
               <button
                 onClick={() =>
-                  abrirAtomo3D(elementoSeleccionado)
+                  abrirAtomo3D(
+                    elementoSeleccionado
+                  )
                 }
               >
                 Ver átomo 3D
               </button>
 
-              <button>
+
+              <button
+                onClick={() =>
+                  abrirConstructorMoleculas(
+                    elementoSeleccionado
+                  )
+                }
+              >
                 Construir molécula
               </button>
+
 
               <button>
                 Usar en laboratorio

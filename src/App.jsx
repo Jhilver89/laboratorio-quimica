@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TablaPeriodica from "./views/TablaPeriodica";
 import Atomo3D from "./views/Atomo3D";
+import ConstructorMoleculas from "./views/ConstructorMoleculas";
 import "./App.css";
 
 function App() {
@@ -17,7 +18,16 @@ function App() {
     setVista("atomo3d");
   };
 
+  const abrirConstructorMoleculas = (elemento = null) => {
+    setElementoSeleccionado(elemento);
+    setVista("moleculas");
+  };
+
   const volverDesdeAtomo = () => {
+    setVista("tabla");
+  };
+
+  const volverDesdeMoleculas = () => {
     setVista("tabla");
   };
 
@@ -63,28 +73,44 @@ function App() {
           </button>
 
           <button
-            className={vista === "moleculas" ? "nav-activo" : ""}
-            onClick={() => cambiarVista("moleculas")}
+            className={
+              vista === "moleculas"
+                ? "nav-activo"
+                : ""
+            }
+            onClick={() => abrirConstructorMoleculas()}
           >
             Moléculas
           </button>
 
           <button
-            className={vista === "reacciones" ? "nav-activo" : ""}
+            className={
+              vista === "reacciones"
+                ? "nav-activo"
+                : ""
+            }
             onClick={() => cambiarVista("reacciones")}
           >
             Reacciones
           </button>
 
           <button
-            className={vista === "aprender" ? "nav-activo" : ""}
+            className={
+              vista === "aprender"
+                ? "nav-activo"
+                : ""
+            }
             onClick={() => cambiarVista("aprender")}
           >
             Aprender
           </button>
 
           <button
-            className={vista === "retos" ? "nav-activo" : ""}
+            className={
+              vista === "retos"
+                ? "nav-activo"
+                : ""
+            }
             onClick={() => cambiarVista("retos")}
           >
             Retos
@@ -191,6 +217,7 @@ function App() {
         {vista === "tabla" && (
           <TablaPeriodica
             abrirAtomo3D={abrirAtomo3D}
+            abrirConstructorMoleculas={abrirConstructorMoleculas}
           />
         )}
 
@@ -208,31 +235,30 @@ function App() {
 
 
         {/* =========================================
+            CONSTRUCTOR DE MOLÉCULAS
+            ========================================= */}
+
+        {vista === "moleculas" && (
+          <ConstructorMoleculas
+            elementoInicial={elementoSeleccionado}
+            volver={volverDesdeMoleculas}
+          />
+        )}
+
+
+        {/* =========================================
             LABORATORIO
             ========================================= */}
 
         {vista === "laboratorio" && (
           <section className="vista-provisional">
+
             <h2>Laboratorio</h2>
 
             <p>
               Aquí construiremos el laboratorio 3D.
             </p>
-          </section>
-        )}
 
-
-        {/* =========================================
-            MOLÉCULAS
-            ========================================= */}
-
-        {vista === "moleculas" && (
-          <section className="vista-provisional">
-            <h2>Constructor de Moléculas</h2>
-
-            <p>
-              Aquí construiremos el sistema para crear moléculas.
-            </p>
           </section>
         )}
 
@@ -243,11 +269,13 @@ function App() {
 
         {vista === "reacciones" && (
           <section className="vista-provisional">
+
             <h2>Reacciones Químicas</h2>
 
             <p>
               Aquí simularemos las reacciones químicas.
             </p>
+
           </section>
         )}
 
@@ -258,11 +286,13 @@ function App() {
 
         {vista === "aprender" && (
           <section className="vista-provisional">
+
             <h2>Aprender Química</h2>
 
             <p>
               Aquí estarán las lecciones y contenidos educativos.
             </p>
+
           </section>
         )}
 
@@ -273,11 +303,13 @@ function App() {
 
         {vista === "retos" && (
           <section className="vista-provisional">
+
             <h2>Retos</h2>
 
             <p>
               Aquí construiremos los desafíos de química.
             </p>
+
           </section>
         )}
 
