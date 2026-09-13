@@ -1,0 +1,650 @@
+/* =========================================
+   TABLA PERIÓDICA
+   ========================================= */
+
+.vista-tabla-periodica {
+  width: 100%;
+  min-height: calc(100vh - 82px);
+  padding: 30px 25px 40px;
+  background: #f4f7fb;
+}
+
+
+/* =========================================
+   CABECERA
+   ========================================= */
+
+.tabla-titulo {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 25px;
+  margin-bottom: 22px;
+}
+
+.tabla-titulo h1 {
+  margin: 0;
+  font-size: 30px;
+  color: #172b4d;
+}
+
+.tabla-titulo p {
+  margin: 7px 0 0;
+  font-size: 14px;
+  color: #697586;
+}
+
+
+/* =========================================
+   BUSCADOR
+   ========================================= */
+
+.buscador-elementos {
+  display: flex;
+  width: min(430px, 100%);
+  gap: 8px;
+}
+
+.buscador-elementos input {
+  flex: 1;
+  min-width: 0;
+
+  padding: 11px 13px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  background: white;
+
+  outline: none;
+
+  font-size: 13px;
+}
+
+.buscador-elementos input:focus {
+  border-color: #172b4d;
+}
+
+.buscador-elementos button {
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #172b4d;
+  color: white;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   CONTENEDOR
+   ========================================= */
+
+.tabla-contenedor {
+  width: 100%;
+
+  padding: 18px;
+
+  background: white;
+
+  border: 1px solid #dfe5ee;
+  border-radius: 14px;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   TABLA PRINCIPAL
+   ========================================= */
+
+.tabla-periodica-grande {
+  width: 100%;
+}
+
+.periodo-grande {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns: repeat(18, minmax(0, 1fr));
+
+  gap: 4px;
+
+  margin-bottom: 4px;
+}
+
+.espacio-elemento {
+  min-width: 0;
+  min-height: 76px;
+}
+
+
+/* =========================================
+   CASILLAS
+   ========================================= */
+
+.casilla-elemento-grande {
+  position: relative;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 76px;
+
+  padding: 8px 3px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+
+  border: 1px solid #d5dce7;
+  border-radius: 7px;
+
+  background: #f9fbfd;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.casilla-elemento-grande:hover {
+  transform: translateY(-2px);
+
+  border-color: #172b4d;
+
+  background: #eef3f9;
+
+  box-shadow: 0 4px 10px rgba(23, 43, 77, 0.1);
+}
+
+.casilla-elemento-grande strong {
+  font-size: clamp(14px, 1.5vw, 20px);
+
+  line-height: 1;
+
+  color: #172b4d;
+}
+
+.numero-elemento {
+  position: absolute;
+
+  top: 5px;
+  left: 5px;
+
+  font-size: 8px;
+
+  color: #718096;
+}
+
+.nombre-elemento {
+  width: 100%;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  text-align: center;
+
+  font-size: clamp(6px, 0.65vw, 9px);
+
+  color: #697586;
+}
+
+.elemento-seleccionado {
+  background: #dce7f5;
+
+  border: 2px solid #172b4d;
+
+  box-shadow: 0 0 0 2px rgba(23, 43, 77, 0.08);
+}
+
+
+/* =========================================
+   LANTÁNIDOS Y ACTÍNIDOS
+   ========================================= */
+
+.series-separadas {
+  width: 100%;
+
+  margin-top: 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.serie-fila {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    85px repeat(15, minmax(0, 1fr));
+
+  gap: 4px;
+}
+
+.serie-etiqueta {
+  min-width: 0;
+  min-height: 76px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px;
+
+  border: 1px solid #d9e0ea;
+  border-radius: 7px;
+
+  background: #eef2f7;
+
+  color: #596579;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  text-align: center;
+}
+
+.casilla-serie {
+  width: 100%;
+  min-width: 0;
+  min-height: 76px;
+
+  border: 1px dashed #aab5c5;
+  border-radius: 7px;
+
+  background: #f3f6fa;
+
+  color: #596579;
+
+  cursor: pointer;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.casilla-serie:hover {
+  background: #e7edf5;
+}
+
+
+/* =========================================
+   INFORMACIÓN DEL ELEMENTO
+   ========================================= */
+
+.informacion-elemento {
+  width: 100%;
+
+  margin-top: 22px;
+  padding: 24px;
+
+  display: grid;
+
+  grid-template-columns: 220px 1fr;
+
+  gap: 25px;
+
+  background: white;
+
+  border: 1px solid #dfe5ee;
+  border-radius: 14px;
+}
+
+
+/* =========================================
+   RESUMEN
+   ========================================= */
+
+.elemento-resumen {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: flex-start;
+
+  text-align: center;
+
+  gap: 12px;
+}
+
+.elemento-grande-simbolo {
+  width: 105px;
+  height: 105px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #172b4d;
+
+  color: white;
+
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.elemento-numero {
+  display: block;
+
+  font-size: 12px;
+
+  color: #718096;
+}
+
+.elemento-resumen h2 {
+  margin: 5px 0;
+
+  font-size: 27px;
+
+  color: #172b4d;
+}
+
+.categoria-elemento {
+  margin: 0;
+
+  font-size: 14px;
+
+  color: #697586;
+}
+
+
+/* =========================================
+   DATOS QUÍMICOS
+   ========================================= */
+
+.datos-quimicos {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.dato-quimico {
+  min-width: 0;
+  min-height: 68px;
+
+  padding: 12px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e1e6ee;
+
+  border-radius: 8px;
+}
+
+.dato-quimico span {
+  display: block;
+
+  font-size: 10px;
+
+  color: #7a8596;
+}
+
+.dato-quimico strong {
+  display: block;
+
+  font-size: 14px;
+
+  color: #172b4d;
+
+  line-height: 1.2;
+
+  word-break: break-word;
+}
+
+
+/* =========================================
+   CONFIGURACIÓN ELECTRÓNICA
+   ========================================= */
+
+.configuracion-electronica {
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  min-height: 50px;
+
+  padding: 12px 15px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  background: #eef3f9;
+
+  border-radius: 8px;
+}
+
+.configuracion-electronica span {
+  font-size: 12px;
+
+  color: #697586;
+}
+
+.configuracion-electronica strong {
+  font-size: 15px;
+
+  color: #172b4d;
+}
+
+
+/* =========================================
+   ACCIONES
+   ========================================= */
+
+.acciones-elemento {
+  grid-column: 1 / -1;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+.acciones-elemento button {
+  border: none;
+
+  border-radius: 7px;
+
+  padding: 10px 15px;
+
+  background: #172b4d;
+
+  color: white;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.acciones-elemento button:hover {
+  transform: translateY(-1px);
+
+  opacity: 0.92;
+}
+
+.acciones-elemento button:nth-child(2),
+.acciones-elemento button:nth-child(3) {
+  background: #e8eef7;
+
+  color: #172b4d;
+}
+
+
+/* =========================================
+   SIN ELEMENTO
+   ========================================= */
+
+.sin-elemento {
+  grid-column: 1 / -1;
+
+  width: 100%;
+
+  padding: 25px;
+
+  text-align: center;
+}
+
+.sin-elemento h2 {
+  margin: 0 0 7px;
+
+  font-size: 20px;
+
+  color: #172b4d;
+}
+
+.sin-elemento p {
+  margin: 0;
+
+  font-size: 14px;
+
+  color: #718096;
+}
+
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+  .tabla-titulo {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .buscador-elementos {
+    width: 100%;
+  }
+
+  .informacion-elemento {
+    grid-template-columns: 1fr;
+  }
+
+  .elemento-resumen {
+    flex-direction: row;
+
+    justify-content: flex-start;
+
+    text-align: left;
+  }
+
+  .datos-quimicos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .vista-tabla-periodica {
+    padding: 20px 12px 30px;
+  }
+
+  .tabla-contenedor {
+    padding: 10px;
+  }
+
+  .periodo-grande {
+    gap: 2px;
+  }
+
+  .casilla-elemento-grande {
+    min-height: 55px;
+
+    border-radius: 5px;
+  }
+
+  .nombre-elemento {
+    display: none;
+  }
+
+  .numero-elemento {
+    font-size: 6px;
+
+    top: 3px;
+    left: 3px;
+  }
+
+  .serie-fila {
+    grid-template-columns:
+      55px repeat(15, minmax(0, 1fr));
+
+    gap: 2px;
+  }
+
+  .serie-etiqueta,
+  .casilla-serie {
+    min-height: 55px;
+  }
+
+  .informacion-elemento {
+    padding: 18px;
+  }
+
+  .elemento-resumen {
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+  }
+
+  .datos-quimicos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .configuracion-electronica {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .acciones-elemento button {
+    width: 100%;
+  }
+}
